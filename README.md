@@ -2,6 +2,8 @@
 
 Translate laravel resource, vendor, folder or file from google translation without requiring any api information.
 
+![Laravel go translate](logo.png)
+
 ## Table of contents <!-- omit in toc -->
 
 - [Installation](#installation)
