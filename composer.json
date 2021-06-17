@@ -1,0 +1,45 @@
+{
+    "name": "codebuglab/laravel-go-translate",
+    "description": "Translate laravel resource, vendor, folder or file from google translation without requiring any api information",
+    "type": "library",
+    "require": {
+        "php": ">=7.0",
+        "illuminate/support": ">=6.0.0",
+        "dejurin/php-google-translate-for-free": "1.0.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed Elkomy",
+            "email": "mo.ah.elkomy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "CodeBugLab\\GoTranslate\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CodeBugLab\\GoTranslate\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CodeBugLab\\GoTranslate\\GoTranslateServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --colors --testdox",
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ]
+    }
+}
