@@ -30,7 +30,7 @@ composer require codebuglab/laravel-go-translate --dev
 ```
 
 ## Translate Commands
-
+- This package can translate laravel project by multiple ways from `php` or `json` files
 
 
 ### Resource
@@ -87,7 +87,7 @@ php artisan go-translate:file en ar resource/lang/en/auth.php resource/lang/test
 
 
 
-### Options
+## Options
 
 
 
@@ -102,7 +102,7 @@ php artisan go-translate:resource en ar --E=json
 ```
 - This option wouldn't only translate files in `resource/lang/en` to `resource/lang/ar`, This will also convert files to json during translation
 - An example of that `resource/lang/en/auth.php` which is based laravel file created with all projects will translate and save at `resource/lang/ar/auth.json`
-- Current extension options `json`, `php`
+- Current extension options for reading and converting are `json`, `php`
 
 
 
