@@ -41,6 +41,7 @@ to `resource/lang/{destinationLang}`
 php artisan go-translate:resource en ar
 ```
 - This is an example of a command will translate all files in `resource/lang/en` folder and transfer them to `resource/lang/ar` folder after translation from `en` to `ar`
+
 ![](translate_resource.gif)
 
 
