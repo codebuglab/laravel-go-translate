@@ -69,8 +69,8 @@ class TranslateFile
         $this->progressBar->setBarCharacter('<fg=green>⚬</>');
         $this->progressBar->setProgressCharacter('<fg=green>➤</>');
         $this->progressBar->setEmptyBarCharacter("<fg=red>⚬</>");
-        $this->progressBar->setMessage("<fg=white;bg=blue> Loading....</>", 'status');
-        $this->progressBar->setFormat("<fg=white;bg=blue> Creating file: {$this->folder['destination']}\\{$this->filename['destination']}{$this->writer->extension}</>\n%current%/%max% [%bar%] %percent:3s%%\n %estimated:-20s%  %memory:20s%\n%status%");
+        $this->progressBar->setMessage("<fg=white;bg=blue>Loading....</>", 'status');
+        $this->progressBar->setFormat("<fg=white;bg=blue>Creating file: {$this->folder['destination']}\\{$this->filename['destination']}{$this->writer->extension}</>\n%current%/%max% [%bar%] %percent:3s%%\n %estimated:-20s%  %memory:20s%\n%status%\n");
         $this->progressBar->setBarWidth(50);
         $this->progressBar->start();
     }
@@ -88,7 +88,7 @@ class TranslateFile
      */
     public function finishProgressBar()
     {
-        $this->progressBar->setMessage("<fg=white;bg=green> Translation complete and all files have saved</>", 'status');
+        $this->progressBar->setMessage("<fg=white;bg=green>Translation complete and all files have saved</>", 'status');
         $this->progressBar->finish();
     }
 
@@ -124,9 +124,9 @@ class TranslateFile
                 if ($this->progressBar instanceof ProgressBar) {
                     $this->progressBar->advance();
                     if (!empty($this->preparation->text)) {
-                        $this->progressBar->setMessage("<fg=white;bg=green> Translation success</>", 'status');
+                        $this->progressBar->setMessage("<fg=white;bg=green>Translation success</>", 'status');
                     } else {
-                        $this->progressBar->setMessage("<fg=white;bg=red> Translation error</>", 'status');
+                        $this->progressBar->setMessage("<fg=white;bg=red>Translation error</>", 'status');
                     }
                 }
             }
