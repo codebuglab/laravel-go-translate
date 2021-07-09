@@ -109,7 +109,7 @@ php artisan go-translate:resource en ar --E=json
 
 ## Notices
 
-- this package build upon [dejurin/php-google-translate-for-free](https://github.com/dejurin/php-google-translate-for-free) package which use google translate to translate languages and some times you take bans from google for translating multiple lines in a few amount of time, So and for now if you face some problems during translating exit command by clicking `ctrl+c` and try to change your ip address of wait for couple of hours till the ban ends.
+- this package build upon [dejurin/php-google-translate-for-free](https://github.com/dejurin/php-google-translate-for-free) package which use google translate to translate languages and some times you take bans from google for translating multiple lines in a few amount of time, So and for now if you face some problems during translating exit command by clicking `ctrl+c` and try to change your ip address of wait for couple or hours till the ban ends.
 
 
 
