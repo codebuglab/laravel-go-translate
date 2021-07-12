@@ -34,7 +34,7 @@ class TranslateFolder
 
     private function scanFolder($folder)
     {
-        $dirList = glob($folder . '\*');
+        $dirList = glob($folder . '\*'); // Get all folder content (files and sub-folders)
         foreach ($dirList as $path) {
             $pathArray = explode("\\", $path);
 
