@@ -21,6 +21,7 @@ Translate laravel resource, vendor, folder or file from google translation witho
 - [Options](#Options)
   - [Extension](#extension)
 - [Notices](#notices)
+- [Testing](#testing)
 - [License](#license)
 
 ## Installation
@@ -117,6 +118,9 @@ php artisan go-translate:resource en ar --E=json
 - this package build upon [dejurin/php-google-translate-for-free](https://github.com/dejurin/php-google-translate-for-free) package which use google translate to translate languages and some times you take bans from google for translating multiple lines in a few amount of time, So and for now if you face some problems during translating exit command by clicking `ctrl+c` and try to change your ip address of wait for couple or hours till the ban ends.
 
 
+## Testing
+
+To run test use this command `vendor/bin/phpunit`
 
 
 ## License
