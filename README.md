@@ -2,6 +2,12 @@
 
 Translate laravel resource, vendor, folder or file from google translation without requiring any api information.
 
+[![Issues](https://img.shields.io/github/issues/codebuglab/laravel-go-translate)](https://github.com/codebuglab/laravel-go-translate/issues)
+[![Forks](https://img.shields.io/github/forks/codebuglab/laravel-go-translate)](https://github.com/codebuglab/laravel-go-translate/network/members)
+[![Stars](https://img.shields.io/github/stars/codebuglab/laravel-go-translate)](https://github.com/codebuglab/laravel-go-translate/stargazers)
+[![Download](https://img.shields.io/packagist/dt/codebuglab/laravel-go-translate)](https://packagist.org/packages/codebuglab/laravel-go-translate)
+[![License](https://img.shields.io/github/license/codebuglab/laravel-go-translate)](https://github.com/codebuglab/laravel-go-translate/blob/main/LICENCE)
+
 ![Laravel go translate](logo.png)
 
 ## Table of contents <!-- omit in toc -->
