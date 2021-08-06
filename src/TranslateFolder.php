@@ -2,7 +2,7 @@
 
 namespace CodeBugLab\GoTranslate;
 
-use CodeBugLab\GoTranslate\Helper\WriterHelper;
+use CodeBugLab\GoTranslate\Factory\WriterFactory;
 use CodeBugLab\GoTranslate\Service\TranslateFileService;
 
 class TranslateFolder
@@ -10,10 +10,12 @@ class TranslateFolder
     public  $folder;
     public  $lang;
     public  $writer = null;
+    public  $writerFactory;
 
 
-    public  function __construct()
+    public  function __construct(WriterFactory $writerFactory)
     {
+        $this->writerFactory = $writerFactory;
     }
 
     public function __call($method, $args)
@@ -21,7 +23,7 @@ class TranslateFolder
         if (substr($method, 0, 2) === "to") {
             $extension = strtolower(substr($method, 2));
 
-            $this->writer = WriterHelper::getWriter($extension);
+            $this->writer = $this->writerFactory->getWriter($extension);
 
             return $this;
         }
@@ -43,7 +45,7 @@ class TranslateFolder
 
                 $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-                $writer = ($this->writer != null) ? $this->writer : WriterHelper::getWriter($extension);
+                $writer = ($this->writer != null) ? $this->writer : $this->writerFactory->getWriter($extension);
 
                 $fileDestinationPath = sprintf(
                     "%s\\%s%s",

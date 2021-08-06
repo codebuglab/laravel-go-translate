@@ -1,14 +1,16 @@
 <?php
 
-namespace CodeBugLab\GoTranslate\Helper;
+namespace CodeBugLab\GoTranslate\Factory;
 
 use CodeBugLab\GoTranslate\Exceptions\ReaderException;
+use CodeBugLab\GoTranslate\Factory\ReaderFactoryInterface;
 use CodeBugLab\GoTranslate\Reader\JsonReaderStrategy;
 use CodeBugLab\GoTranslate\Reader\PhpReaderStrategy;
+use CodeBugLab\GoTranslate\Reader\ReaderStrategyInterface;
 
-class ReaderHelper
+class ReaderFactory implements ReaderFactoryInterface
 {
-    public static function getReader($extension) {
+    public function getReader(string $extension) : ReaderStrategyInterface {
         switch ($extension) {
             case "php":
                 return new PhpReaderStrategy();

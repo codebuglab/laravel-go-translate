@@ -3,6 +3,7 @@
 namespace CodeBugLab\GoTranslate\Tests\Unit\Builder;
 
 use CodeBugLab\GoTranslate\Builder\TranslateFolderBuilder;
+use CodeBugLab\GoTranslate\Factory\WriterFactory;
 use CodeBugLab\GoTranslate\Tests\TestCase;
 use CodeBugLab\GoTranslate\TranslateFolder;
 
@@ -15,16 +16,22 @@ class TranslateFolderBuilderTest extends TestCase
 
     public function test_translate_folder_builder_build_an_object()
     {
-        $goTranslate = (new TranslateFolderBuilder(new TranslateFolder()))
-            ->getResult();
+        $goTranslate = (new TranslateFolderBuilder(
+            new TranslateFolder(
+                new WriterFactory()
+            )
+        ))->getResult();
 
         $this->assertInstanceOf(TranslateFolder::class, $goTranslate);
     }
 
     public function test_translate_folder_builder_is_set_languages()
     {
-        $goTranslate = (new TranslateFolderBuilder(new TranslateFolder()))
-            ->setLanguage($this->sourceLang, $this->destinationLang)
+        $goTranslate = (new TranslateFolderBuilder(
+            new TranslateFolder(
+                new WriterFactory()
+            )
+        ))->setLanguage($this->sourceLang, $this->destinationLang)
             ->getResult();
 
         $this->assertEquals(
@@ -38,8 +45,11 @@ class TranslateFolderBuilderTest extends TestCase
 
     public function test_translate_folder_builder_is_set_folders()
     {
-        $goTranslate = (new TranslateFolderBuilder(new TranslateFolder()))
-            ->setFolder($this->sourceFolder, $this->destinationFolder)
+        $goTranslate = (new TranslateFolderBuilder(
+            new TranslateFolder(
+                new WriterFactory()
+            )
+        ))->setFolder($this->sourceFolder, $this->destinationFolder)
             ->getResult();
 
         $this->assertEquals(

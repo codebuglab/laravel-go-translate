@@ -3,6 +3,7 @@
 namespace CodeBugLab\GoTranslate\Tests\Unit\Builder;
 
 use CodeBugLab\GoTranslate\Builder\TranslateVendorBuilder;
+use CodeBugLab\GoTranslate\Factory\WriterFactory;
 use CodeBugLab\GoTranslate\Tests\TestCase;
 use CodeBugLab\GoTranslate\TranslateFolder;
 
@@ -13,16 +14,22 @@ class TranslateVendorBuilderTest extends TestCase
 
     public function test_translate_vendor_builder_build_an_object()
     {
-        $goTranslate = (new TranslateVendorBuilder(new TranslateFolder()))
-            ->getResult();
+        $goTranslate = (new TranslateVendorBuilder(
+            new TranslateFolder(
+                new WriterFactory()
+            )
+        ))->getResult();
 
         $this->assertInstanceOf(TranslateFolder::class, $goTranslate);
     }
 
     public function test_translate_vendor_builder_is_set_languages()
     {
-        $goTranslate = (new TranslateVendorBuilder(new TranslateFolder()))
-            ->setLanguage($this->sourceLang, $this->destinationLang)
+        $goTranslate = (new TranslateVendorBuilder(
+            new TranslateFolder(
+                new WriterFactory()
+            )
+        ))->setLanguage($this->sourceLang, $this->destinationLang)
             ->getResult();
 
         $this->assertEquals(
@@ -36,8 +43,11 @@ class TranslateVendorBuilderTest extends TestCase
 
     public function test_translate_vendor_builder_is_set_folder()
     {
-        $goTranslate = (new TranslateVendorBuilder(new TranslateFolder()))
-            ->setLanguage($this->sourceLang, $this->destinationLang)
+        $goTranslate = (new TranslateVendorBuilder(
+            new TranslateFolder(
+                new WriterFactory()
+            )
+        ))->setLanguage($this->sourceLang, $this->destinationLang)
             ->setFolder()
             ->getResult();
 

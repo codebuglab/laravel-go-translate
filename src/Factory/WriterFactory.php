@@ -1,15 +1,16 @@
 <?php
 
-namespace CodeBugLab\GoTranslate\Helper;
+namespace CodeBugLab\GoTranslate\Factory;
 
 use CodeBugLab\GoTranslate\Exceptions\WriterException;
+use CodeBugLab\GoTranslate\Factory\WriterFactoryInterface;
 use CodeBugLab\GoTranslate\Writer\JsonWriterStrategy;
 use CodeBugLab\GoTranslate\Writer\PhpWriterStrategy;
+use CodeBugLab\GoTranslate\Writer\WriterStrategyInterface;
 
-class WriterHelper
+class WriterFactory implements WriterFactoryInterface
 {
-    public static function getWriter($extension)
-    {
+    public function getWriter(string $extension) : WriterStrategyInterface {
         switch ($extension) {
             case "php":
                 return new PhpWriterStrategy();

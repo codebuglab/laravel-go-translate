@@ -2,10 +2,10 @@
 
 namespace CodeBugLab\GoTranslate;
 
+use CodeBugLab\GoTranslate\Factory\ReaderFactory;
+use CodeBugLab\GoTranslate\Factory\WriterFactory;
 use Dejurin\GoogleTranslateForFree;
 use CodeBugLab\GoTranslate\File\FileInterface;
-use CodeBugLab\GoTranslate\Helper\ReaderHelper;
-use CodeBugLab\GoTranslate\Helper\WriterHelper;
 use CodeBugLab\GoTranslate\Prepare\TextPreparation;
 use CodeBugLab\GoTranslate\Reader\ReaderStrategyInterface;
 use CodeBugLab\GoTranslate\Writer\WriterStrategyInterface;
@@ -36,8 +36,8 @@ class TranslateFile
     ) {
         $this->filename['source'] = pathinfo($sourcePath, PATHINFO_FILENAME);
         $this->filename['destination'] = pathinfo($destinationPath, PATHINFO_FILENAME);
-        $this->reader = ReaderHelper::getReader(pathinfo($sourcePath, PATHINFO_EXTENSION));
-        $this->writer = WriterHelper::getWriter(pathinfo($destinationPath, PATHINFO_EXTENSION));
+        $this->reader = (new ReaderFactory())->getReader(pathinfo($sourcePath, PATHINFO_EXTENSION));
+        $this->writer = (new WriterFactory())->getWriter(pathinfo($destinationPath, PATHINFO_EXTENSION));
         $this->folder['source'] = pathinfo($sourcePath, PATHINFO_DIRNAME);
         $this->folder['destination'] = pathinfo($destinationPath, PATHINFO_DIRNAME);;
         $this->lang = $lang;
