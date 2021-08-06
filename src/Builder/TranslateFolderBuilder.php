@@ -6,7 +6,9 @@ use CodeBugLab\GoTranslate\TranslateFolder;
 
 class TranslateFolderBuilder implements TranslateFolderBuilderInterface
 {
-
+    /**
+     * @var TranslateFolder
+     */
     private $goTranslate;
 
     public function __construct(TranslateFolder $goTranslate)

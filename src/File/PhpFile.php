@@ -4,5 +4,8 @@ namespace CodeBugLab\GoTranslate\File;
 
 abstract class PhpFile implements FileInterface
 {
-    public string $extension = ".php";
+    /**
+     * @var string
+     */
+    public $extension = ".php";
 }

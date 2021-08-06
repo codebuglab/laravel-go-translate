@@ -5,15 +5,30 @@ namespace CodeBugLab\GoTranslate;
 use CodeBugLab\GoTranslate\Exceptions\WriterException;
 use CodeBugLab\GoTranslate\Factory\WriterFactory;
 use CodeBugLab\GoTranslate\Service\TranslateFileService;
+use CodeBugLab\GoTranslate\Writer\WriterStrategyInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class TranslateFolder
 {
-    public  $folder;
-    public  $lang;
-    public  $writer = null;
-    public  $writerFactory;
+    /**
+     * @var array
+     */
+    public $folder;
 
+    /**
+     * @var array
+     */
+    public $lang;
+
+    /**
+     * @var WriterStrategyInterface
+     */
+    public $writer = null;
+
+    /**
+     * @var WriterFactory
+     */
+    public $writerFactory;
 
     public  function __construct(WriterFactory $writerFactory)
     {

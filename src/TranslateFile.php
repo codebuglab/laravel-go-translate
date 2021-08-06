@@ -14,17 +14,55 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class TranslateFile
 {
-    public array $filename;
-    public ReaderStrategyInterface $reader;
-    public WriterStrategyInterface $writer;
-    public array $folder;
-    public array $lang;
-    public string $attempts;
+    /**
+     * @var array
+     */
+    public $filename;
 
-    public array $languageArray;
-    public array $translatedFile;
-    public GoogleTranslateForFree $translateForFree;
-    public TextPreparation $preparation;
+    /**
+     * @var ReaderStrategyInterface
+     */
+    public $reader;
+
+    /**
+     * @var WriterStrategyInterface
+     */
+    public $writer;
+
+    /**
+     * @var array
+     */
+    public $folder;
+
+    /**
+     * @var array
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $attempts;
+
+    /**
+     * @var array
+     */
+    public $languageArray;
+
+    /**
+     * @var array
+     */
+    public $translatedFile;
+
+    /**
+     * @var GoogleTranslateForFree
+     */
+    public $translateForFree;
+
+    /**
+     * @var TextPreparation
+     */
+    public $preparation;
 
     private $progressBar = null;
 

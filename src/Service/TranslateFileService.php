@@ -6,7 +6,9 @@ use CodeBugLab\GoTranslate\TranslateFile;
 
 class TranslateFileService
 {
-
+    /**
+     * @var TranslateFile
+     */
     public $translate;
 
     public function __construct(
