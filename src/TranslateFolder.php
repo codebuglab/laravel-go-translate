@@ -2,8 +2,10 @@
 
 namespace CodeBugLab\GoTranslate;
 
+use CodeBugLab\GoTranslate\Exceptions\WriterException;
 use CodeBugLab\GoTranslate\Factory\WriterFactory;
 use CodeBugLab\GoTranslate\Service\TranslateFileService;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class TranslateFolder
 {
@@ -45,7 +47,17 @@ class TranslateFolder
 
                 $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-                $writer = ($this->writer != null) ? $this->writer : $this->writerFactory->getWriter($extension);
+                if ($this->writer != null) {
+                    $writer = $this->writer;
+                } else {
+                    try {
+                        $writer = $this->writerFactory->getWriter($extension);
+                    } catch (WriterException $e) {
+                        $output = new ConsoleOutput();
+                        $output->writeln("<error>We don't support this extension for this file " . "'{$filename}'" . "</error>");
+                        continue;
+                    }
+                }
 
                 $fileDestinationPath = sprintf(
                     "%s\\%s%s",
