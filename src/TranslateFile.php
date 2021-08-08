@@ -64,6 +64,11 @@ class TranslateFile
      */
     public $preparation;
 
+    /**
+     * @var ConsoleOutput
+     */
+    public $consoleOutput;
+
     private $progressBar = null;
 
     public function __construct(
@@ -81,6 +86,7 @@ class TranslateFile
         $this->lang = $lang;
         $this->attempts = $attempts;
         $this->translateForFree = new GoogleTranslateForFree();
+        $this->consoleOutput = new ConsoleOutput();
     }
 
     /**
@@ -102,8 +108,7 @@ class TranslateFile
         }
         $countOfRows = array_sum(array_map("count", $this->languageArray));
 
-        $output = new ConsoleOutput();
-        $this->progressBar = new ProgressBar($output, $countOfRows);
+        $this->progressBar = new ProgressBar($this->consoleOutput, $countOfRows);
         $this->progressBar->setBarCharacter('<fg=green>⚬</>');
         $this->progressBar->setProgressCharacter('<fg=green>➤</>');
         $this->progressBar->setEmptyBarCharacter("<fg=red>⚬</>");
