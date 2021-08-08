@@ -23,7 +23,7 @@ class TranslateFileService
         );
     }
 
-    public function withProgressBar()
+    public function withProgressBar(): void
     {
         $this->translate->readFromFile();
         $this->translate->initiateProgressBar();
@@ -32,7 +32,7 @@ class TranslateFileService
         $this->translate->writeInFile();
     }
 
-    public function withoutProgressBar()
+    public function withoutProgressBar(): void
     {
         $this->translate->readFromFile();
         $this->translate->translate();

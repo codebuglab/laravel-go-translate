@@ -8,8 +8,6 @@ use Illuminate\Console\Command;
 class GoTranslateFile extends Command
 {
     /**
-     * The name and signature of the console command.
-     *
      * @var string
      */
     protected $signature = 'go-translate:file
@@ -20,28 +18,16 @@ class GoTranslateFile extends Command
     {--E= : The extension you want all files to convert to}';
 
     /**
-     * The console command description.
-     *
      * @var string
      */
     protected $description = 'translate resource';
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
-    public function handle()
+    public function handle(): int
     {
         ini_set('max_execution_time', 30000000000); //300 seconds = 5 minutes
 
@@ -52,5 +38,6 @@ class GoTranslateFile extends Command
 
         $translateFileService = new TranslateFileService($sourcePath, $destinationPath, $lang);
         $translateFileService->withProgressBar();
+        return 0;
     }
 }

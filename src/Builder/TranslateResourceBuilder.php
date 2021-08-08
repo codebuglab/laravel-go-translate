@@ -11,12 +11,15 @@ class TranslateResourceBuilder implements TranslateFolderBuilderInterface
      */
     private $goTranslate;
 
+    /**
+     * @return void
+     */
     public function __construct(TranslateFolder $goTranslate)
     {
         $this->goTranslate = $goTranslate;
     }
 
-    public function setLanguage($source, $destination)
+    public function setLanguage($source, $destination): self
     {
         $this->goTranslate->lang = [
             "source" => $source,
@@ -24,6 +27,7 @@ class TranslateResourceBuilder implements TranslateFolderBuilderInterface
         ];
         return $this;
     }
+
     public function setFolder()
     {
         $this->goTranslate->folder = [
@@ -37,7 +41,7 @@ class TranslateResourceBuilder implements TranslateFolderBuilderInterface
         return $this;
     }
 
-    public function getResult()
+    public function getResult(): TranslateFolder
     {
         return $this->goTranslate;
     }

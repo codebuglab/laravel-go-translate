@@ -6,6 +6,13 @@ use Exception;
 
 class ReaderException extends Exception
 {
+    /**
+     * @var string
+     */
     protected $message = "We don't support this extension be sure you type acceptable one.";
+
+    /**
+     * @var int
+     */
     protected $code    = 1;
 }

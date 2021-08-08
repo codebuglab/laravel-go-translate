@@ -46,12 +46,12 @@ class TranslateFolder
         }
     }
 
-    public function execute()
+    public function execute(): void
     {
         $this->scanFolder($this->folder['source'][0]);
     }
 
-    private function scanFolder($folder)
+    private function scanFolder($folder): void
     {
         $dirList = glob($folder . '\*'); // Get all folder content (files and sub-folders)
         foreach ($dirList as $path) {
@@ -103,7 +103,7 @@ class TranslateFolder
         array_pop($this->folder['destination']);
     }
 
-    private function translate($sourcePath, $destinationPath)
+    private function translate($sourcePath, $destinationPath): void
     {
         $translateFileService = new TranslateFileService($sourcePath, $destinationPath, $this->lang);
         $translateFileService->withProgressBar();

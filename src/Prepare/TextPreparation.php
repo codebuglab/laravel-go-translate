@@ -42,7 +42,7 @@ class TextPreparation
     /**
      * Prepare function that will call before translation
      */
-    public function prepareBeforeTranslate()
+    public function prepareBeforeTranslate(): void
     {
         $this->textWithUnderscore();
         $this->saveSpecialContent();
@@ -51,7 +51,7 @@ class TextPreparation
     /**
      * Prepare function that will call after translation
      */
-    public function prepareAfterTranslate()
+    public function prepareAfterTranslate(): string
     {
         $this->returnSpecialContent();
         return $this->text;
@@ -60,7 +60,7 @@ class TextPreparation
     /**
      * Replace every underscore in the text with space
      */
-    private function textWithUnderscore()
+    private function textWithUnderscore(): void
     {
         $this->text = str_replace("_", " ", $this->text);
     }
@@ -70,7 +70,7 @@ class TextPreparation
      * preg_replace_all
      * str_replace callback
      */
-    private function saveSpecialContent()
+    private function saveSpecialContent(): void
     {
         if (preg_match_all("/($this->htmlEntity)|($this->laravelVariable)|($this->stringSpecifier)/", $this->text, $this->specialCharacterArray) > 0) {
             $this->text = str_replace($this->specialCharacterArray[0], $this->hashedArray, $this->text);
@@ -80,7 +80,7 @@ class TextPreparation
     /**
      * Return all special characters to the text
      */
-    private function returnSpecialContent()
+    private function returnSpecialContent(): void
     {
         $this->text = str_replace($this->hashedArray, $this->specialCharacterArray[0], $this->text);
     }

@@ -10,7 +10,8 @@ use CodeBugLab\GoTranslate\Reader\ReaderStrategyInterface;
 
 class ReaderFactory implements ReaderFactoryInterface
 {
-    public function getReader(string $extension) : ReaderStrategyInterface {
+    public function getReader(string $extension): ReaderStrategyInterface
+    {
         switch ($extension) {
             case "php":
                 return new PhpReaderStrategy();

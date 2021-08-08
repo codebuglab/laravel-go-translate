@@ -95,7 +95,7 @@ class TranslateFile
     /**
      * Initiate progress bar and determine how many rows in the language array
      */
-    public function initiateProgressBar()
+    public function initiateProgressBar(): void
     {
         if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
             error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
@@ -124,7 +124,7 @@ class TranslateFile
     /**
      * Finish the progress bar
      */
-    public function finishProgressBar()
+    public function finishProgressBar(): void
     {
         $this->progressBar->setMessage("<fg=white;bg=green>Translation complete and all files have saved</>", 'status');
         $this->progressBar->finish();
@@ -191,7 +191,7 @@ class TranslateFile
     /**
      * Determine and return file path
      */
-    private function filePath(string $path, FileInterface $file)
+    private function filePath(string $path, FileInterface $file): string
     {
         return sprintf("%s/%s%s", $this->folder[$path], $this->filename[$path], $file->extension);
     }

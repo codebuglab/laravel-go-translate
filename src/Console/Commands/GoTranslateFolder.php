@@ -7,7 +7,9 @@ use Illuminate\Console\Command;
 
 class GoTranslateFolder extends Command
 {
-
+    /**
+     * @var string
+     */
     protected $signature = 'go-translate:folder
     {sourceLang : The language of the source file}
     {destinationLang : The language of the destination file you want to save}
@@ -15,6 +17,9 @@ class GoTranslateFolder extends Command
     {destinationFolder : The source of the folder you want to save}
     {--E= : The extension you want all files to convert to}';
 
+    /**
+     * @var string
+     */
     protected $description = 'translate folder';
 
     public function __construct()
@@ -22,7 +27,7 @@ class GoTranslateFolder extends Command
         parent::__construct();
     }
 
-    public function handle(TranslateFolderBuilder $goTranslateFolderBuilder)
+    public function handle(TranslateFolderBuilder $goTranslateFolderBuilder): int
     {
         ini_set('max_execution_time', 30000000000); //300 seconds = 5 minutes
 
@@ -37,5 +42,6 @@ class GoTranslateFolder extends Command
         }
 
         $goTranslate->execute();
+        return 0;
     }
 }

@@ -12,9 +12,6 @@ class GoTranslateServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        // $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-
-        //php artisan go-translate:folder en ar resources\\lang\\en resources\\lang\\test --E=Json
         if ($this->app->runningInConsole()) {
             $this->commands([
                 GoTranslateResource::class,
