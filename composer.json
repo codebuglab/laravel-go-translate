@@ -41,5 +41,13 @@
         "post-autoload-dump": [
             "@php ./vendor/bin/testbench package:discover --ansi"
         ]
-    }
+    },
+    "keywords": [
+        "laravel",
+        "google-translate",
+        "laravel-localization",
+        "translation",
+        "laravel-package",
+        "php"
+    ]
 }
