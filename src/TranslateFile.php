@@ -106,9 +106,8 @@ class TranslateFile
         if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
             error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
         }
-        $countOfRows = array_sum(array_map("count", $this->languageArray));
 
-        $this->progressBar = new ProgressBar($this->consoleOutput, $countOfRows);
+        $this->progressBar = new ProgressBar($this->consoleOutput, $this->countLanguageArrayRows());
         $this->progressBar->setBarCharacter('<fg=green>⚬</>');
         $this->progressBar->setProgressCharacter('<fg=green>➤</>');
         $this->progressBar->setEmptyBarCharacter("<fg=red>⚬</>");
@@ -199,5 +198,17 @@ class TranslateFile
     private function filePath(string $path, FileInterface $file): string
     {
         return sprintf("%s/%s%s", $this->folder[$path], $this->filename[$path], $file->extension);
+    }
+
+    /**
+     * Count language array rows even with nested array
+     */
+    private function countLanguageArrayRows()
+    {
+        $count = array_map(function ($element) {
+            return is_countable($element) ? count($element) : 1;
+        }, $this->languageArray);
+
+        return array_sum($count);
     }
 }
